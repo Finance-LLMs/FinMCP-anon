@@ -1,0 +1,59 @@
+{
+  "mcpServers": {
+    "mcp-server-upstox-api": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "http://localhost:8787/sse"
+      ]
+    },
+    "Stocks": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--with",
+        "mcp[cli]",
+        "--with",
+        "yfinance",
+        "mcp",
+        "run",
+        "./MCP_tools/main.py"
+      ]
+    },
+    "IndianMarkets": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--with",
+        "mcp[cli]",
+        "--with",
+        "bse",
+        "--with",
+        "nsepython",
+        "mcp",
+        "run",
+        "./MCP_tools/indian_markets.py"
+      ]
+    },
+    "deep-research-python": {
+      "command": "python3",
+      "args": [
+        "./MCP_tools/Deep_Research/deep-research-python/mcp_deep_research.py"
+      ],
+      "env": {
+        "PYTHONPATH": "./MCP_tools/Deep_Research/deep-research-python"
+      }
+    },
+    "Peter Lynch Digital Persona": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--with",
+        "mcp[cli]",
+        "mcp",
+        "run",
+        "./MCP_tools/Digital_Personna/PeterLynchDigitalPersona.py"
+      ]
+    }
+  }
+}
